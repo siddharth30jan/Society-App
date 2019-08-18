@@ -11,14 +11,14 @@ route.post('/',(req,res)=>{
        })
        .then((user)=>{
            let temp=user.cartBox
-           if(!temp.includes(req.body.id)){
+           if(!temp.includes(req.body.id)){    //Contains the current subscribed society
                console.log("Haan chala")
             temp+=req.body.id+ " "
             user.update({
              cartBox: temp
             }).then((user) => {
                 res.send(user)
-            })
+            }).catch((err)=>res.send(err));
            }
            else
            res.send(user)

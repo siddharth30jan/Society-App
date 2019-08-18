@@ -14,18 +14,20 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/login',require('./routes/login'))
-app.use('/signup',require('./routes/signup'))
+
+
+
 app.use('/mofo',express.static(path.join(__dirname,'public')))
 
+
+//Endpoints!
+app.use('/login',require('./routes/login'))
+app.use('/signup',require('./routes/signup'))
 app.use('/home',require('./routes/home'))
 app.use('/subscribe',require('./routes/subscribe'))
 app.use('/admin',require('./routes/admin'))
-
 app.use('/insert',require('./routes/insert'))
-
 app.use('/societydata',require('./routes/societydata.js'))
-
 app.get('/logout', function(req, res){
     req.logout();
     res.redirect('/login');

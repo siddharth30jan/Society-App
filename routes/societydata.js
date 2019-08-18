@@ -4,14 +4,16 @@ const Societies=require('../db').Societies
 route.get('/',(req,res)=>{
     res.render('societydata')
 })
+
 route.post('/',(req,res)=>{
-    console.log("yhan " +req.body.name)
+   
     Societies.findOne({
         where: {
             SocietyName: req.body.name
         }
     })
     .then((society)=>{
+        console.log(society);
         let temp=society.SocietyNotif
         temp+=req.body.data+ "##"
         society.update({
@@ -21,6 +23,7 @@ route.post('/',(req,res)=>{
         })
     })
     .catch((err)=>{
+        console.log("Yhan ERROR hai!!!!!!")
         res.send('error')
     })
 })

@@ -1,6 +1,6 @@
 const Sequelize= require('sequelize');
 
-const db= new Sequelize('bong','root','siddharth',{
+const db= new Sequelize('societapp','root','siddharth',{
     host: 'localhost',
     dialect: 'mysql',
     pool: {
@@ -10,7 +10,7 @@ const db= new Sequelize('bong','root','siddharth',{
 })
 
 
-    const Societies= db.define('society',{
+    const Societies= db.define('societynew',{
         id: {
             type: Sequelize.INTEGER,
             autoIncrement: true,
@@ -27,12 +27,14 @@ const db= new Sequelize('bong','root','siddharth',{
         }        
         })
 
-        const Users= db.define('kuch',{
+        const Users= db.define('consumers',{
             id: {
                 type: Sequelize.INTEGER,
                 autoIncrement: true,
                 primaryKey: true
                 },
+                firstname: {type: Sequelize.STRING},
+                lastname: {type: Sequelize.STRING},
             username: {
                 type: Sequelize.STRING,
                 allowNull: false,

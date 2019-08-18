@@ -9,7 +9,7 @@ route.get('/',(req,res)=>{
 route.post('/add',(req,res)=>{
    Society.create({
        SocietyName: req.body.name,
-       SocietyNotif: ""
+       SocietyNotif: " "
    })
    .then((society)=>{
        res.send(society)
